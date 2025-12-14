@@ -1,0 +1,38 @@
+name: Regression Test
+'on':
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+
+
+jobs:
+  execution:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false # https://github.com/cypress-io/github-action/issues/48
+      matrix:
+        containers: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    steps:
+      - name: Set up Node Env
+        uses: actions/checkout@v5
+      - name: Execute Cypress
+        uses: cypress-io/github-action@v6
+        with:
+          parallel: true
+          record: true
+          command: npx cypress run --record --parallel --e2e --browser chrome --config baseUrl=https://staging.ismojo.com/signup --env tags=@dev
+          
+        env:
+          CYPRESS_RECORD_KEY: ${{secrets.CYPRESS_RECORD_KEY}}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload Test Results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Results-${{matrix.containers}}
+          path: cypress/reports/   

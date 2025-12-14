@@ -1,0 +1,43 @@
+{
+   "lambdatest_auth": {
+      "username": "bhadmusautomates",
+      "access_key": "LT_o3k0RHlynstdWdScY8lNu1fVVRmnR89Omh0boeuN0NgUPvE"
+   },
+   "browsers": [
+      {
+         "browser": "Chrome",
+         "platform": "MacOS Tahoe",
+         "versions": [
+            "latest"
+         ]
+      },
+      {
+         "browser": "Firefox",
+         "platform": "Windows 10",
+         "versions": [
+            "latest"
+         ]
+      }
+   ],
+   "run_settings": {
+      "reporter_config_file": "base_reporter_config.json",
+      "build_name": "batch",
+      "parallels": 5,
+      "specs": "cypress/e2e/ismojo/*.feature",
+      "ignore_files": "",
+      "network": false,
+      "video": true,
+      "headless": false,
+      "npm_dependencies": {
+         "@badeball/cypress-cucumber-preprocessor": "^23.2.1",
+         "@bahmutov/cypress-esbuild-preprocessor": "^2.2.7",
+         "@faker-js/faker": "^10.1.0",
+         "cypress": "^15.7.0",
+         "browserstack-cypress-cli": "1.36.0"
+      }
+   },
+   "tunnel_settings": {
+      "tunnel": false,
+      "tunnel_name": null
+   }
+}
