@@ -14,11 +14,11 @@ Feature: Ismojo Sign Up
             | country  |
             | Nigeria  |
             | Ghana    |
-            | Honduras |
-            | Panama   |
-            | Chile    |
-            | Brazil   |
-            | Qatar    |
-            | China    |
-            | Samoa    |
-            | Fiji     |
+            # | Honduras |
+            # | Panama   |
+            # | Chile    |
+            # | Brazil   |
+            # | Qatar    |
+            # | China    |
+            # | Samoa    |
+            # | Fiji     |

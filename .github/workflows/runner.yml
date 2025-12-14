@@ -15,11 +15,7 @@ jobs:
     env:
       LT_USERNAME: ${{ secrets.LT_USERNAME }}
       LT_ACCESS_KEY: ${{ secrets.LT_ACCESS_KEY }}
-
-    strategy:
-      fail-fast: false 
-      matrix:
-        containers: [1, 2, 3, 4, 5]
+      
     steps:
       - name: Set up Node Env
         uses: actions/checkout@v5
@@ -28,10 +24,6 @@ jobs:
         with:
           config: baseUrl=https://staging.ismojo.com/signup
           env: tags=@dev
-          
-        env:
-          SPLIT: ${{ strategy.job-total }}
-          SPLIT_INDEX: ${{ strategy.job-index }}
 
       - name: Run Cypress on LambdaTest
         run: npx lambdatest-cypress run    
