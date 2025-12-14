@@ -16,7 +16,8 @@
     "@bahmutov/cypress-esbuild-preprocessor": "^2.2.7",
     "@faker-js/faker": "^10.1.0",
     "cypress": "^15.7.0",
-    "lambdatest-cypress-cli": "3.0.45"
+    "lambdatest-cypress-cli": "3.0.45",
+    "cypress-split": "^1.24.25"
   },
   "cypress-cucumber-preprocessor": {
     "stepDefinitions": [

@@ -12,23 +12,29 @@ name: Regression Test
 jobs:
   execution:
     runs-on: ubuntu-latest
+    env:
+      LT_USERNAME: ${{ secrets.LT_USERNAME }}
+      LT_ACCESS_KEY: ${{ secrets.LT_ACCESS_KEY }}
+
     strategy:
-      fail-fast: false # https://github.com/cypress-io/github-action/issues/48
+      fail-fast: false 
       matrix:
-        containers: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        containers: [1, 2, 3, 4, 5]
     steps:
       - name: Set up Node Env
         uses: actions/checkout@v5
       - name: Execute Cypress
         uses: cypress-io/github-action@v6
         with:
-          parallel: true
-          record: true
-          command: npx cypress run --record --parallel --e2e --browser chrome --config baseUrl=https://staging.ismojo.com/signup --env tags=@dev
+          config: baseUrl=https://staging.ismojo.com/signup
+          env: tags=@dev
           
         env:
-          CYPRESS_RECORD_KEY: ${{secrets.CYPRESS_RECORD_KEY}}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SPLIT: ${{ strategy.job-total }}
+          SPLIT_INDEX: ${{ strategy.job-index }}
+
+      - name: Run Cypress on LambdaTest
+        run: npx lambdatest-cypress run    
 
       - name: Upload Test Results
         if: always()

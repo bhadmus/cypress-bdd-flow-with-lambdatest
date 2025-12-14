@@ -1,8 +1,5 @@
 {
-   "lambdatest_auth": {
-      "username": "bhadmusautomates",
-      "access_key": "LT_o3k0RHlynstdWdScY8lNu1fVVRmnR89Omh0boeuN0NgUPvE"
-   },
+  
    "browsers": [
       {
          "browser": "Chrome",
