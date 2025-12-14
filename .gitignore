@@ -7,7 +7,6 @@ cypress/reports/
 cypress/screenshots/
 cypress/video/
 log/
-base_reporter_config.json
 he_conv.yaml
 lambdatest_run.json
 .hyperexecuteignore

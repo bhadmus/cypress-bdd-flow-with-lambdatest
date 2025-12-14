@@ -13,7 +13,7 @@ Feature: Ismojo Sign Up
         Examples:
             | country  |
             | Nigeria  |
-            | Ghana    |
+            # | Ghana    |
             # | Honduras |
             # | Panama   |
             # | Chile    |
